@@ -1,3 +1,13 @@
 spring:
   application:
     name: order-service
+
+  kafka:
+    consumer:
+      group-id: ${spring.application.name}
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.keniu.inventories, com.keniu.payments
+
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

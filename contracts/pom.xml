@@ -10,9 +10,4 @@
     </parent>
 
     <artifactId>contracts</artifactId>
-
-    <dependencies>
-
-    </dependencies>
-
 </project>

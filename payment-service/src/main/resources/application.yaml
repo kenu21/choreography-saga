@@ -2,5 +2,12 @@ spring:
   application:
     name: payment-service
 
-server:
-  port: 8081
+  kafka:
+    consumer:
+      group-id: ${spring.application.name}
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.keniu.orders, com.keniu.inventories
+
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
